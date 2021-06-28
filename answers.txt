@@ -1,0 +1,11 @@
+1. Get all orders from the most recent to the oldest.
+select * from orders order by order_date DESC;
+2. Get all products belonging to a particular category.
+select * from products where product_category_id = 3;
+3. Get the top three (3) most expensive products in the products table.
+select * from products order by price desc limit 2;
+4. Get the total number of products under each product category.
+ELECT product_category_id, COUNT(*) FROM products GROUP BY product_category_id;
+5. Get the top three (3) selling products based on the number of orders.
+SELECT product_id, title, COUNT(*) FROM products JOIN orders ON products.id=orders.product_id 
+GROUP BY product_id ORDER BY COUNT(*) DESC LIMIT 3;
